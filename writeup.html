@@ -1,0 +1,516 @@
+<html>
+
+<head>
+    <title> COS426 Assignment 2 &mdash; Modeling &mdash; Writeup</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+    <script src="js/student.js"> </script>
+    <script src="coursejs/writeup.js"> </script>
+    <div class="top">
+        <div class="main_div">
+            <h1>
+                <div class=assignment>COS426 Assignment 2</div>Modeling &mdash; Writeup
+            </h1>
+            <h2>Switch to: <a href='index.html'>Interactive Editor</a></h2>
+            <br>
+            <strong>
+                Late Days Used: 2
+            </strong>
+            <br>
+            <br>
+            <div id='collaboration'>
+                <div>
+                Collaboration Statement:
+                </div>
+                    <br>
+                <div>
+                    <em>
+                        Under penalty of academic dishonesty (as outlined in RRR)
+                        my digital signature below verifies that the following is true:
+                        <ul>
+                            <p>
+                                that all images in this writeup were generated directly by my solution code
+                                or provided by the course staff (exception: art contest submissions
+                                may pass through intermediary software like GIMP)
+                            </p>
+                            <p>
+                                that no other student has viewed my writeup explanations
+                                or my writeup images
+                            </p>
+                            <p>
+                                that my solution code is my own work; particularly that
+                                my solution was not copied from any other
+                                student's solution code, and that no other student
+                                copied their solution directly code from me
+                            </p>
+                            <p>
+                                that I did not discuss assignment specifics or view
+                                the solution code of any other student besides that of my (optional) partner
+                            </p>
+                            <p>
+                                that I have followed all other course collaboration
+                                and course plagiarism policies as written on the course website.
+                            </p>
+                        </ul>
+                    </em>
+                    <p>
+                        <strong>
+                            Lauren Gardner  leg3
+                        </strong>
+                    </p>
+
+                    <p>
+                        Collaborated with: PARTNER NAME HERE (partner-netid-here)
+                    </p>
+                    <br>
+                </div>
+            </div>
+            <div class='selectable'>
+                <h2 id='student'></h2>
+                Features Implemented:
+                <ul>
+                    <li>(0.0) <a href='#Translation'>Translation</a></li>
+                    <li>(1.0) <a href='#Rotation'>Rotation</a></li>
+                    <li>(0.5) <a href='#Scale'>Scale</a></li>
+                    <li>(2.0) <a href='#Traversal'>Traversal</a></li>
+                    <li>(0.5) <a href='#Face+Area'>Face Area</a></li>
+                    <li>(0.5) <a href='#Per-vertex+Normals'>Per-vertex Normals</a></li>
+                    <li>(0.5) <a href='#Average+Edge+Lengths'>Average Edge Lengths</a></li>
+                    <li>(1.0) <a href='#Twist'>Twist</a></li>
+                    <li>(1.0) <a href='#Inflate'>Inflate</a></li>
+                    <li>(1.0) <a href='#Wacky'>Wacky</a></li>
+                    <li>(1.0) <a href='#Noise'>Noise</a></li>
+                    <li>(1.0) <a href='#Uniform+Laplacian+Smoothing'>Uniform Laplacian Smoothing</a></li>
+                    <li>(1.0) <a href='#Uniform+Sharpening'>Uniform Sharpening</a></li>
+                    <li>(1.5) <a href='#Curvature-flow+Laplacian+Smoothing'>Curvature-flow Laplacian Smoothing</a></li>
+                    <li>(0.5) <a href='#Triangulate'>Triangulate</a></li>
+                    <li>(2.0) <a href='#Truncate'>Truncate</a></li>
+                    <li>(2.0) <a href='#Extrude'>Extrude</a></li>
+                    <li>(1.5) <a href='#Triangle+Topology'>Triangle Topology</a></li>
+                    <li>(1.0) <a href='#Art+Contest'>Art Contest</a></li>
+                </ul>
+            </div>
+            <div>
+                <hr>
+                <a name='Translation'></a>
+                <h2>Translation</h2>
+
+                <hr>
+                <p>
+                    This feature was implemented by the course staff.
+                    I used it as an example of how to loop over the vertices of a mesh.
+                </p>
+
+                <p>
+                    Here is an example output where the mesh is translated
+                    <a href='batch.html?Base_Mesh=cube.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Translation=3;0;0'>
+                        by 3 along the x axis
+                    </a>:
+                    <br>
+                    <img src='results/translate3.png'>
+                </p>
+                <p>
+                    I did not encounter any particular challenges in implementing this.
+                </p>
+                <p>
+                    You can include as many results as you want, but please at least include the following results:
+                </p>
+            </div>
+            <div>
+                <hr>
+                <a name='Rotation'></a>
+                <h2>Rotation</h2>
+                <hr>
+                <p>
+                    My rotation function converts the given (x, y, z) coordinates into an THREE.Euler value which is then applied to each vertex in the object.
+                </p>
+                <p>
+                    You can include as many results as you want, but please at least include the following results:
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=teapot.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Rotation=1;0;0'>
+                        Base_Mesh=teapot.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Rotation=1;0;0
+                    </a>
+                    <br>
+                    <img src='results/rotate/rotate1.png'>
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=teapot.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Rotation=0;0.75;0'>Base_Mesh=teapot.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Rotation=0;0.75;0</a>
+                    <br>
+                    <img src='results/rotate/rotate2.png'>
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=teapot.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Rotation=0;0;1.5'>Base_Mesh=teapot.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Rotation=0;0;1.5</a>
+                    <br>
+                    <img src='results/rotate/rotate3.png'>
+                </p>
+            </div>
+            <div>
+                <hr>
+                <a name='Scale'></a>
+                <h2>Scale</h2>
+                <hr>
+                <p>
+                    For each vertex in the object I applied the scalar value to the position vector and applied the result.
+                </p>
+                <p>
+                    You can include as many results as you want, but please at least include the following results:
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=cube.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Scale=0.5'>Base_Mesh=cube.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Scale=0.5</a>
+                    <br>
+                    <img src='results/scale/scale1.png'>
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=cube.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Scale=2'>Base_Mesh=cube.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Scale=2</a>
+                    <br>
+                    <img src='results/scale/scale2.png'>
+                </p>
+            </div>
+            <div>
+                <hr>
+                <a name='Traversal'></a>
+                <h2>Traversal</h2>
+                <hr>
+                <p>
+                    Vertices on vertex: Starting at the halfedge connected to v, I traversed the surrounding edges on v using a loop that updated the HE to HE.opposite.next each iteration. Each iteration I would store the vertex connected to the current HE
+                </p>
+                <p>
+                    Edges on vertex: Starting at the halfedge connected to v, I traversed the surround edges on v using a loop that updated the HE to HE.opposite.next each iteration. Each iteration I stored this HE
+                </p> 
+                <p>
+                    Faces on vertex: Starting at the halfedge connected to v, I traversed the surround edges on v using a loop that updated the HE to HE.opposite.next each iteration. Each iteration I stored the face connected to the current HE 
+                </p>
+                <p>
+                    Vertices on edge: I stored the current HE.vertex and the HE.opposite.vertex and returned
+                </p>
+                <p> 
+                    Faces on edge: I stored the current HE.face and the HE.opposite.face and returned
+
+                    Edges on Face: Starting at the halfedge connected to f, I traversed the surrounding edges on f using a loop that updated the HE to HE.next each iteration. Each iteration I would store the current HE
+                </p>
+                <p> 
+                    Faces on Face: Starting at the halfedge connected to f, I traversed the surrounding edges on f using a loop that updated the HE to HE.next each iteration. Each iteration I stored the HE.opposite.face
+                </p>
+                    Edges between vertices: I traversed all of the vertices around v1 until I found the one that equalled v2. I then stored that halfedge and returned
+                </p>
+            </div>
+            <div>
+                <hr>
+                <a name='Face+Area'></a>
+                <h2>Face Area</h2>
+                <hr>
+                <p>
+                    For each vertex on face f, I first cross multiplied the v[i] and v[i+1] and multiplied that by a scalar (sin(theta)*1/2) where theta is the angle between v1 and v2. I then add the (x, y, z) coordinates squared and squarerooted the result and added it to a total area variable. I then divided by the number of additions to the face and returned the result.
+                </p>
+            </div>
+            <div>
+                <hr>
+                <a name='Per-vertex+Normals'></a>
+                <h2>Per-vertex Normals</h2>
+                <hr>
+                <p>
+                    I scaled the normal of each face surrounding v by the area of that face and then applied it to the vertex.
+                </p>
+            </div>
+            <div>
+                <hr>
+                <a name='Average+Edge+Lengths'></a>
+                <h2>Average Edge Lengths</h2>
+                <hr>
+                <p>
+                    I traversed the vertices surrounding vertex v and calculated the distance to each and averaged it.
+                </p>
+            </div>
+            <div>
+                <hr>
+                <a name='Twist'></a>
+                <h2>Twist</h2>
+                <hr>
+                <p>
+                    To implement twist I looped through all the vertices and applied the euler factor to the y vertex position.
+                </p>
+                <p>
+                    You can include as many results as you want, but please at least include the following
+                    results:
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=large-cube.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Twist=0.5'>Base_Mesh=large-cube.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Twist=0.5</a>
+                    <br>
+                    <img src='results/twist/twist1.png'>
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=large-cube.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Twist=4'>Base_Mesh=large-cube.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Twist=4</a>
+                    <br>
+                    <img src='results/twist/twist2.png'>
+                </p>
+            </div>
+            <div>
+                <hr>
+                <a name='Inflate'></a>
+                <h2>Inflate</h2>
+                <hr>
+                <p>
+                    In order to inflate the mesh I scaled the normal value of each vertex by the given factor and average edge length. I then applied these changes to the final mesh
+                </p>
+                <p>
+                    You can include as many results as you want, but please at least include the
+                    following results:
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=teapot.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Inflate=1'>Base_Mesh=teapot.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Inflate=1</a>
+                    <br>
+                    <img src='results/inflate/inflate1.png'>
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=teapot.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Inflate=-1'>Base_Mesh=teapot.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Inflate=-1</a>
+                    <br>
+                    <img src='results/inflate/inflate2.png'>
+                </p>
+            </div>
+            <div>
+                <hr>
+                <a name='Wacky'></a>
+                <h2>Wacky</h2>
+                <hr>
+                <p>
+                    My wacky function creates a rotation based on the current x position and the factor passed in. A random variable is also multiplied to the y value to create an interesting texture
+                </p>
+                <p>
+                    You can include as many results as you want, but please at
+                    least include at least two.
+                </p>
+            <p></p>
+                <a href='batch.html?Base_Mesh=large-cube.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Wacky=1'>Base_Mesh=large-cube.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Wacky=1</a>
+                <br>
+                <img src='results/wacky/wacky1.png'>
+            </p>
+            <p>
+                <a href='batch.html?Base_Mesh=large-cube.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Wacky=0.75'>Base_Mesh=large-cube.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Wacky=0.75</a>
+                <br>
+                <img src='results/wacky/wacky2.png'>
+            </div>
+            <div>
+                <hr>
+                <a name='Noise'></a>
+                <h2>Noise</h2>
+                <hr>
+                <p>
+                    To implement the noise function I first generated a random number between (-1) and (1). I then multiplied the normal of each vertex by factor*random*avgEdgeLength(vertex). I then added this scaled normal back to the vertex position vector. 
+                </p>
+                <p>
+                    You can include as many results as you want,
+                    but please at least include the following
+                    results:
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=hand.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Noise=0.25'>Base_Mesh=hand.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Noise=0.25</a>
+                    <br>
+                    <img src='results/noise/noise1.png'>
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=hand.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Noise=1'>Base_Mesh=hand.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Noise=1</a>
+                    <br>
+                    <img src='results/noise/noise2.png'>
+                </p>
+            </div>
+            <div>
+                <hr>
+                <a name='Uniform+Laplacian+Smoothing'></a>
+                <h2>Uniform Laplacian Smoothing</h2>
+                <hr>
+                <p>
+                    I implemented uniform lapacian smoothing by iterating through the neighboring vertices of each vertex v. Following the formula provided on the assignment page, I stored v.position and multiplied that by the number of neighbors that v had. I then added all of the neighbors positions up and subtracted that from the previous value. Finally I applied my delta and returned. For this smoothing function and others, I stored altered values in a modified array and applied the changes after. 
+                </p>
+                <p>
+                    You can include as many results as you want, but please at least include the following
+                    results:
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=hand-simple.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Smooth=15;0.05;false;false;false'>Base_Mesh=hand-simple.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Smooth=15;0.05;false;false;false</a>
+                    <br>
+                    <img src='results/uniformL/uniformL1.png'>
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=sphere-2res.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Smooth=100;0.05;false;false;false'>Base_Mesh=sphere-2res.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Smooth=100;0.05;false;false;false</a>
+                    <br>
+                    <img src='results/uniformL/uniformL2.png'>
+                </p>
+            </div>
+            <div>
+                <hr>
+                <a name='Uniform+Sharpening'></a>
+                <h2>Uniform Sharpening</h2>
+                <hr>
+                <p>
+                    Much like uniform smoothing, I followed the assignment specs and negated my delta value in lapacian smoothing which created the opposite effect, sharpening.
+                </p>
+                <p>
+                    You can include as many results as you want, but please at least include the following
+                    results:
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=cow.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Sharpen=100;0.001'>Base_Mesh=cow.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Sharpen=100;0.001</a>
+                    <br>
+                    <img src='results/sharp/sharp1.png'>
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=octopus.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Sharpen=100;0.001'>Base_Mesh=octopus.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Sharpen=100;0.001</a>
+                    <br>
+                    <img src='results/sharp/sharp2.png'>
+                </p>
+            </div>
+            <div>
+                <hr>
+                <a name='Curvature-flow+Laplacian+Smoothing'></a>
+                <h2>Curvature-flow
+                    Laplacian
+                    Smoothing</h2>
+                <hr>
+                <p>
+                    Much like with uniform lapachian smoothing, I based my code on the algorithm given in the assignment specs. I first got the total weights of all the vertices and applied that to my scaledDelta variable along with the vertex v's position. After this I then added all of v's neighbooring vertices positions multiplied by the associated weights. I then subtracted this from the former variable and pushed it to my modified array to avoid changing vertices too early.
+                </p>
+                <p>
+                    You can include as many results as you want, but please at least include the following
+                    results:
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=hand-simple.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Smooth=15;0.05;true;false;false'>Base_Mesh=hand-simple.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Smooth=15;0.05;true;false;false</a>
+                    <br>
+                    <img src='results/curvFlow/curvFlow1.png'>
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=sphere-2res.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Smooth=100;0.05;true;false;false'>Base_Mesh=sphere-2res.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Smooth=100;0.05;true;false;false</a>
+                    <br>
+                    <img src='results/curvFlow/curvFlow2.png'>
+                </p>
+            </div>
+            <div>
+                <hr>
+                <a name='Triangulate'></a>
+                <h2>Triangulate</h2>
+                <hr>
+                <p>
+                    To implement triangulate i looped through all the faces on the mesh and for ones with > 3 vertices I continuously connected a vertex and nextnextvertex together to form a triangular subsection.
+                </p>
+                <p>
+                    You can include as many results as you want,
+                    but please at least include the following
+                    results:
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=cube.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Triangulate='>Base_Mesh=cube.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Triangulate=</a>
+                    <br>
+                    <img src='results/triangulate/triangulate1.png'>
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=octopus.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Triangulate='>Base_Mesh=octopus.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Triangulate=</a>
+                    <br>
+                    <img src='results/triangulate/triangulate2.png'>
+                </p>
+            </div>
+            <div>
+                <hr>
+                <a name='Truncate'></a>
+                <h2>Truncate</h2>
+                <hr>
+                <p>
+                    To implement truncate, I first populated edge and verts-on-edge-position arrays with cloned versions of edges and vertice positions. I then split each edge connected to the current vertex and got the new midpoint along that. I saved one edge for last since the original vertex's position was needed in the calculation. The last vertext is just the original one moved to the new position. I then finished up by spliting the faces.
+                </p>
+                <p>
+                    You can include as many results as you want, but please at least include the following
+                    results:>
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=dodecahedron.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Truncate=0.448'>Base_Mesh=dodecahedron.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Truncate=0.448</a>
+                    <br>
+                    <img src='results/truncate/truncate1.png'>
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=cube.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Selection=;1&Truncate=0.25'>Base_Mesh=cube.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Selection=;1&Truncate=0.25</a>
+                    <br>
+                    <img src='results/truncate/truncate2.png'>
+                </p>
+            </div>
+            <div>
+                <hr>
+                <a name='Extrude'></a>
+                <h2>Extrude</h2>
+                <hr>
+                <p>
+                    I first found the normals for each face I was extruding and then created new vertices that I then scaled by factor along the normals. I finished by spliting the face and joining the edges.
+                </p>
+                <p>
+                    You can include as many results as you want, but please at least include the following
+                    results:
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=tetrahedron.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Extrude=0.5'>Base_Mesh=tetrahedron.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Extrude=0.5</a>
+                    <br>
+                    <img src='results/extrude/extrude1.png'>
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=tetrahedron.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Selection=;2&Extrude=1'>Base_Mesh=tetrahedron.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Selection=;2&Extrude=1</a>
+                    <br>
+                    <img src='results/extrude/extrude2.png'>
+                </p>
+            </div>
+            <div>
+                <hr>
+                <a name='Triangle+Topology'></a>
+                <h2>Triangle Topology</h2>
+                <hr>
+                <p>
+                    I first generated the new vertices by splictingthe edges on each face. And then I gathered these points and split the face accordingly.
+                </p>
+                <p>
+                    You can include as many results as you want, but please at least include the following
+                    results:
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=cube.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Tri_Topology=1'>Base_Mesh=cube.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Tri_Topology=1</a>
+                    <br>
+                    <img src='results/tritop/tritop1.png'>
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=cube.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Tri_Topology=3'>Base_Mesh=cube.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Tri_Topology=3</a>
+                    <br>
+                    <img src='results/tritop/tritop2.png'>
+                </p>
+                    <a href='batch.html?Base_Mesh=cube.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Selection=;1&Tri_Topology=1'>Base_Mesh=cube.obj&Display_Settings=false;true;flat;false;false;true;false;true;false&Selection=;1&Tri_Topology=1</a>
+                    <br>
+                    <img src='results/tritop/tritop3.png'>
+                </p>
+            </div>
+            <div>
+                <hr>
+                <a name='Art+Contest' id="art-contest"></a>
+                <h2>Art Contest</h2>
+                <hr>
+                <p>
+                    I used a combination of the operations we coded to create weird looking animals. The first of which is a penguin cheetah. The second of which is a furry octopus. 
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=cheetah.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Triangulate=&Smooth=500;0.01;false;false;false&Sharpen=1;21.7'>Base_Mesh=cheetah.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Triangulate=&Smooth=500;0.01;false;false;false&Sharpen=1;21.7</a>
+                    <br>
+                    <img src='results/art/art-leg3-penguinCheetah.png'>
+                </p>
+                <p>
+                    <a href='batch.html?Base_Mesh=octopus.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Smooth=500;0.01;false;false;false&Noise=1&Extrude=0.1'>Base_Mesh=octopus.obj&Display_Settings=false;false;flat;false;false;true;false;true;false&Smooth=500;0.01;false;false;false&Noise=1&Extrude=0.1</a>
+                    <br>
+                    <img src='results/art/art-leg3-furryOcto.png'>
+                </p>
+                <p>
+                    Please your name file(s) so that it starts with the string
+                    "art-netid", where netid is your netid (e.g. "art-rbova-whackyBug.gif"
+                    and "art-rbova-coolColors.jpg"). This labeling will allow us to
+                    easily pull these images for art contests :)
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
